@@ -93,4 +93,4 @@ The Qwen3-0.6B model:
 
 ## License
 
-Apache 2.0
+MIT
