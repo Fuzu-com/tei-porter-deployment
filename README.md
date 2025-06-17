@@ -41,20 +41,14 @@ Edit values directly in `porter.yaml` (not recommended for security).
 
 ## Performance Testing
 
-The repository includes performance testing scripts:
+The repository includes a performance testing script for embeddings:
 
-### Embedding Test
 ```bash
-./embed_test.sh          # Default: 100 requests, 6 concurrent
+./embed_test.sh          # Default: 100 requests, 3 concurrent
 ./embed_test.sh 200 10   # Custom: 200 requests, 10 concurrent
 ```
 
-Tests various text lengths from single words to long documents, providing detailed performance metrics.
-
-### Rerank Test
-```bash
-./rerank_test.sh
-```
+Tests various text lengths from single words to long documents, providing detailed performance metrics including response times and throughput.
 
 ## API Usage
 
