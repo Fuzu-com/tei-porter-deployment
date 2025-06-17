@@ -1,0 +1,35 @@
+# Virtual environments
+venv/
+venv_onnx/
+.env
+
+# Claude configuration
+CLAUDE.md
+.claude/
+
+# ONNX conversion
+convert_*.py
+run_onnx_conversion.sh
+requirements_onnx_export.txt
+ONNX_CONVERSION_README.md
+qwen3-tei-onnx/
+
+# Porter deployment artifacts
+.porter/
+porter-debug.yaml
+porter.yaml  # Keep private config out of public repo
+
+# OS files
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
