@@ -1,0 +1,34 @@
+version: v2
+name: tei-embedder
+services:
+- name: embedder
+  run: text-embeddings-router --model-id janni-t/qwen3-embedding-0.6b-tei-onnx --port 80 --tokenization-workers
+    2 --max-concurrent-requests 8 --max-batch-tokens 4096 --auto-truncate --pooling
+    mean
+  type: web
+  instances: 1
+  cpuCores: 3
+  ramMegabytes: 10240
+  terminationGracePeriodSeconds: 30
+  port: 80
+  domains:
+  # CONFIGURE: Replace with your domain
+  - name: your-domain.example.com
+  sleep: false
+  serviceMeshEnabled: false
+  env:
+  # CONFIGURE: Set your HuggingFace token (optional for public models)
+  # You can either:
+  # 1. Replace directly here (not recommended for public repos)
+  # 2. Set via Porter dashboard environment groups
+  # 3. Use porter apply --env HF_TOKEN=your_token
+  - name: HF_TOKEN
+    value: ""  # Leave empty if model is public
+  - name: HUGGINGFACE_HUB_CACHE
+    value: /data
+image:
+  repository: ghcr.io/randomm/text-embeddings-inference/text-embeddings-inference-cpu-amd
+  tag: amd-optimization-test-a656860
+autoRollback:
+  enabled: true
+deploymentStrategy: {}
